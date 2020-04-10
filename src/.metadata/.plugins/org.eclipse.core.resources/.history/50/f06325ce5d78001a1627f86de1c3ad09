@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+
+/**
+ * @author HippoCity
+ *
+ */
+public class Skeptic {
+
+	/**
+	 * 
+	 */
+	public Skeptic() {
+		super();
+	}
+	
+	public void tryToMove() {
+		tryToMoveRandomly();
+	}
+
+}

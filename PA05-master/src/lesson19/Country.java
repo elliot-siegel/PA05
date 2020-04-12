@@ -7,6 +7,7 @@ public class Country {
 	int numInfected=0;
 	int numRecovered=0;
 	int numPeople=0;
+	int numNewInfections=0;
 
 	/**
 	 * places is a 2d array representing the places a person could be
@@ -59,6 +60,7 @@ public class Country {
 		int count = 0;
 		int numPeople=0;
 		int recovered = 0;
+		int newInfections = 0;
 		// here we iterate through places,
 		// but it would be better to iterate through population
 		for(int i=0; i<places.length; i++) {
@@ -70,6 +72,11 @@ public class Country {
 					}
 					else if (places[i][j].infected) {
 						count++;
+
+						//counts the number of people who were infected on this day
+						if(places[i][j].newInfection){
+							newInfections++;
+						}
 					}
 				}
 			}
@@ -77,6 +84,7 @@ public class Country {
 		this.numInfected = count;
 		this.numPeople = numPeople;
 		this.numRecovered = recovered;
+		this.numNewInfections = newInfections;
 	}
 
 	public void printStats() {

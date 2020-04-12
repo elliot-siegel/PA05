@@ -21,6 +21,7 @@ public abstract class Person {
 	boolean infected = false;
 	boolean exposed = false; // after being exposed, one gets infect in next tick
 	boolean recovered = false;
+  boolean newInfection = false;
 	double infectionProb = 0.5;  // probability of being infect when near a sick person
 	int age = 0;  // their age in ticks
 	int infectionTime = -1;  // -1 means they haven't yet been infected
@@ -97,10 +98,13 @@ public abstract class Person {
 		or from infected to recovered.
 	*/
   void checkForInfection(){
+    this.newInfection = false;
     if (this.exposed && ! this.infected) {
 			this.infected = true;
 			this.infectionTime = this.age;
+      this.newInfection = true;
 		}
+
 		this.age++;
 		if (infected && !this.recovered && (this.age - this.infectionTime > this.recoveryTime)) {
 			this.recovered = true;

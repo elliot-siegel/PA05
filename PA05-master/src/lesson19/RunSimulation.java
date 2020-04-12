@@ -12,27 +12,33 @@ public class RunSimulation {
 	// the maximum number of days the simulation will run
 	private static int MAX_TICKS=1000;
 
+
+
 	private Random random = new Random();
-	private int numtakes;
-	private int maxinfected;
+	private int width;
+	private int height;
+	private int numStayHome;
+	private int numEssential;
+	private int numSkeptic;
+	private int numFrequentFlier;
+	private int numPersonfile;
 
-	public RunSimulation(){
-		numtakes = 0;
-		maxinfected = 0;
-
+	public RunSimulation(String[] args){
+		this.width = Integer.parseInt(args[0]);
+		this.height = Integer.parseInt(args[1]);
+		this.numStayHome = Integer.parseInt(args[2]);
+		this.numEssential = Integer.parseInt(args[3]);
+		this.numSkeptic = Integer.parseInt(args[4]);
+		this.numFrequentFlier = Integer.parseInt(args[5]);
+		this.numPersonfile = Integer.parseInt(args[6]);
 	}
 
-	public void OneSimulation(String[] args) {
+	public Int[] OneSimulation(String[] args) {
 		// first we get the simulation parameters
 		// from the command line
-
-		int width = Integer.parseInt(args[0]);
-		int height = Integer.parseInt(args[1]);
-		int numStayHome = Integer.parseInt(args[2]);
-		int numEssential = Integer.parseInt(args[3]);
-		int numSkeptic = Integer.parseInt(args[4]);
-		int numFrequentFlier = Integer.parseInt(args[5]);
-		int numPersonfile = Integer.parseInt(args[6]);
+		int noNewInfectionDay = 0;
+		int maxinfected = 0;
+		int totalNumInfected = 0;
 
 		// next we create the population and the country
 		Population population;
@@ -51,25 +57,23 @@ public class RunSimulation {
 		// next we place the people into the country randomly
 		population.placePeople(country);
 
-		System.out.println("Initial State of the Country");
-		country.printCountry();
-
-		System.out.println("\nTracking the Infection");
 		for(int k=0;k<MAX_TICKS; k++) {
 			country.simulateOneStep();
-			country.printState(k);
+
+			if(country.numInfected > maxinfected){
+				maxinfected = country.numInfected;
+			}
+
+			if(country.newInfections == 0){
+				noNewInfectionDay = k;
+			}
 
 			if (country.numInfected==0) {
 				break;
-
 			}
 		}
-		System.out.println("\nFinal State of the Country");
-		country.printCountry();
+		totalNumInfected = country.numRecovered;
 
+		return new int[] {noNewInfectionDay, maxinfected, totalNumInfected};
 	}
-
-
-
-
 }

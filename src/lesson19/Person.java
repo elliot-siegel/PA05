@@ -1,19 +1,6 @@
 package lesson19;
 import java.util.Random;
-/**
- The Person class models infected people in a 2d grid
- a person has a unique id, an (x,y) location in a country,
- and an infection status.
- The could be normal, infected, exposed, or recovered.
 
- Each person has an individual probablity of being infected when coming in contact with an infected person
- and they have an individual recovery time after they are infected, at which point they are no longer infectious.
- They can move one unit horizontally, vertically, or diagonally in the grid.
-
- The tick() method simulates them moving one step in the grid
- in some random direction as long as no one else is there.
-
-*/
 
 public abstract class Person {
   // the persons fate depends on some random variables...

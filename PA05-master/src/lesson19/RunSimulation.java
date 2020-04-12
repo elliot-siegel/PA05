@@ -74,6 +74,6 @@ public class RunSimulation {
 		}
 		totalNumInfected = country.numRecovered;
 
-		return new int[] {noNewInfectionDay, maxinfected, totalNumInfected};
+		return new int[] {noNewInfectionDay, totalNumInfected, maxinfected};
 	}
 }

@@ -1,5 +1,8 @@
 package lesson19;
 
+/**
+* This class represents someone who will self-quarantine if they become sick.
+*/
 public class StayAtHomeIfSick extends Person{
 
 

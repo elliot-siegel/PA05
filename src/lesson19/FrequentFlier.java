@@ -1,12 +1,9 @@
-/**
- * 
- */
 package lesson19;
 
 import java.util.Random;
 /**
- * @author HippoCity
- *
+ * this class simulates a person who flies frequently.
+ * they move around the country
  */
 public class FrequentFlier extends Person {
 
@@ -18,7 +15,7 @@ public class FrequentFlier extends Person {
 		Random random = new Random();
 		int i = random.nextInt(country.places.length);
 	    int j = random.nextInt(country.places[i].length);
-	    
+
 	    while (country.places[i][j] != null) {
 	    	i = random.nextInt(country.places.length);
 	    	j = random.nextInt(country.places[i].length);

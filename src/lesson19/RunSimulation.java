@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  *
  * @author tim
- *
+ * Edited by Elliot and Jiayao
  */
 
 public class RunSimulation {

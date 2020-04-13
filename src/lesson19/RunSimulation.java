@@ -21,7 +21,7 @@ public class RunSimulation {
 	private int numEssential;
 	private int numSkeptic;
 	private int numFrequentFlier;
-	private int numPersonfile;
+	private int numCompromised;
 
 	public RunSimulation(String[] args){
 		this.width = Integer.parseInt(args[0]);
@@ -30,10 +30,10 @@ public class RunSimulation {
 		this.numEssential = Integer.parseInt(args[3]);
 		this.numSkeptic = Integer.parseInt(args[4]);
 		this.numFrequentFlier = Integer.parseInt(args[5]);
-		this.numPersonfile = Integer.parseInt(args[6]);
+		this.numCompromised = Integer.parseInt(args[6]);
 	}
 
-	public Int[] OneSimulation(String[] args) {
+	public int[] OneSimulation() {
 		// first we get the simulation parameters
 		// from the command line
 		int noNewInfectionDay = 0;
@@ -48,7 +48,7 @@ public class RunSimulation {
 		//int numEssential = numPeople/10;
 		//int numOther = numPeople/20;
 		//int numStayHome = numPeople - numEssential - numOther;
-		population = new MixedPopulation(numStayHome, numEssential, numSkeptic, numFrequentFlier,numPersonfile);
+		population = new MixedPopulation(numStayHome, numEssential, numSkeptic, numFrequentFlier,numCompromised);
 		population.createPeople();
 
 		Country country = new Country(width,height);
@@ -64,7 +64,7 @@ public class RunSimulation {
 				maxinfected = country.numInfected;
 			}
 
-			if(country.newInfections == 0){
+			if(country.numNewInfections == 0){
 				noNewInfectionDay = k;
 			}
 

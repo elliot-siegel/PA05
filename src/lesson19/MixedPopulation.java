@@ -5,15 +5,15 @@ public class MixedPopulation extends Population{
   int numEssential;
   int numSkeptic;
   int numFrequentFliers;
-  int numPersonfile;
+  int numCompromised;
 
-  public MixedPopulation(int numShelterInPlace, int numEssential, int numSkeptic, int numFrequentFliers, int numPersonfile){
-    super(numShelterInPlace + numEssential + numSkeptic + numFrequentFliers + numPersonfile);
+  public MixedPopulation(int numShelterInPlace, int numEssential, int numSkeptic, int numFrequentFliers, int numCompromised){
+    super(numShelterInPlace + numEssential + numSkeptic + numFrequentFliers + numCompromised);
     this.numShelterInPlace = numShelterInPlace;
     this.numEssential = numEssential;
     this.numSkeptic = numSkeptic;
     this.numFrequentFliers = numFrequentFliers;
-    this.numPersonfile = numPersonfile;
+    this.numCompromised = numCompromised;
 
   }
 
@@ -30,8 +30,8 @@ public class MixedPopulation extends Population{
     for(int i=0; i<this.numFrequentFliers; i++) {
     	this.addPerson(new FrequentFlier());
     }
-    for(int i=0; i<this.numPersonfile; i++) {
-    	this.addPerson(new Personfile());
+    for(int i=0; i<this.numCompromised; i++) {
+    	this.addPerson(new Compromised());
     }
   }
 }

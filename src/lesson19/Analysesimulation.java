@@ -1,3 +1,5 @@
+// Github: https://github.com/elliot-siegel/PA05
+
 package lesson19;
 
  public class Analysesimulation{
@@ -18,9 +20,11 @@ package lesson19;
          peakInfectedLevel = results[2];
        }
      }
-     numOfDays = numOfDays/num_simulations;
-     numOfInfected = numOfInfected/num_simulations;
-
+     if(num_simulations > 0) {
+       numOfDays = numOfDays/num_simulations;
+       numOfInfected = numOfInfected/num_simulations;
+     }
+    
      System.out.println("the average number of days it takes until there are no new infections is " + numOfDays);
      System.out.println("the average number of people infected and finally recovered is " + numOfInfected);
      System.out.println("the maximum number of people infected is " + peakInfectedLevel);
